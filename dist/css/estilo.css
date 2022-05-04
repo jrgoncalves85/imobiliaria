@@ -1,0 +1,9 @@
+.titulo{
+    font-size: 26px;
+    font-weight: 600;
+    color: #3c8dbc;
+}
+
+.nav-tabs-custom>.nav-tabs>li.active {
+    border-top-color: #3c8dbc;
+}

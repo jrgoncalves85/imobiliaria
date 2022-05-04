@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>TIPO Imobiliária</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="dist/css/skins/skin-green-light.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <!-- CSS Logo -->
+  <style type="text/css">
+    h1 {
+      color: #FFF!important;
+    }
+    .login-logo, .register-logo {
+      font-size: 35px;
+      text-align: center;
+      margin-bottom: 1px;
+      font-weight: 300;
+      background-color: #02068b;
+      padding: 10px 80px 15px;
+    }
+    .btn-success{
+      background-color: #02068b;
+      border-color: #02068b;
+      font-size: 15px;
+    }
+    .btn-success:hover{
+      color:#02068b;
+      font-weight: 600;
+      background-color: #FFF;
+      border-color: #02068b;
+    }
+  </style>
+</head>
+<body class="register-page">
+<div class="register-box">
+  <div class="register-logo">
+    <h1>TIPO Imobiliária</h1>
+  </div>
+  <div class="register-box-body">
+    <form action="painel.php" name="form" id="form" method="POST">
+      <div class="box box-default">
+        <div class="box-body"><br/>
+          <div class="form-group has-feedback">
+            <input type="text" id="user" name="user" class="form-control" placeholder="Usuário" required="required">
+            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+            <input type="password" id="password" name="password" class="form-control" placeholder="Senha" required="required">
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          </div>
+          <br/>
+          <div class="row">
+            <div class="col-xs-4 pull-right">
+              <button type="submit" class="btn btn-success btn-block btn-flat">Entrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</body>
+</html>
