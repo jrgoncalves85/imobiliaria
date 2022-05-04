@@ -1,0 +1,20 @@
+INSERT INTO `cidades` (`id`, `cidade`) VALUES
+(1, 'Itapira'),
+(2, 'Jacutinga');
+
+INSERT INTO `bairros` (`id`, `bairro`, `cidades_id`) VALUES
+(1, 'Centro', 1),
+(2, 'Vila Bazani', 1),
+(3, 'Centro', 2);
+
+INSERT INTO `tipos` (`id`, `tipo`) VALUES
+(1, 'Casa'),
+(2, 'Apartamento'),
+(3, 'Terreno'),
+(4, 'Chácara');
+
+INSERT INTO `finalidades` (`id`, `finalidade`) VALUES
+(1, 'Alugar'),
+(2, 'Comprar'),
+(3, 'Trocar');
+
