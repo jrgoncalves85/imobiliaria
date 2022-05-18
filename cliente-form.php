@@ -99,7 +99,7 @@
                             <div class="tab-content">
                                 <div class="tab-pane active" id="pessoais">
                                     <div class="post"><br>
-                                        <form id="form1" name="form1" class="form-horizontal" action="#" method="post" onsubmit="return checkCheckBox(this)" enctype="multipart/form-data">
+                                        <form id="form1" name="form1" class="form-horizontal" action="cliente-gravar.php" method="post" onsubmit="return checkCheckBox(this)" enctype="multipart/form-data">
                                             <div class="row">
                                                 <div class="col-xs-12">
                                                     <input type="hidden" name="inputId" value="">
@@ -107,50 +107,52 @@
                                                     <div class="form-group">
                                                         <label for="inputNome" class="col-md-2 control-label">Nome:</label>
                                                         <div class="col-sm-5">
-                                                            <input type="text" class="form-control" id="inputNome" >
+                                                            <input type="text" class="form-control" name="inputNome" id="inputNome" >
                                                         </div>
-                                                        <label for="inputNome" class="col-md-1 control-label">Celular:</label>
+                                                        <label for="inputTelefone" class="col-md-1 control-label">Celular:</label>
                                                         <div class="col-sm-4">
-                                                            <input type="text" class="form-control" id="inputCelular" >
+                                                            <input type="text" class="form-control" name="inputTelefone" id="inputTelefone" data-inputmask="'mask': ['(99) 99999-9999']" data-mask="" inputmode="text">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="inputNome" class="col-md-2 control-label">E-mail:</label>
+                                                        <label for="inputEmail" class="col-md-2 control-label">E-mail:</label>
                                                         <div class="col-sm-5">
-                                                            <input type="text" class="form-control" id="inputEmail" >
+                                                            <input type="email" class="form-control" name="inputEmail" id="inputEmail" >
                                                         </div>
-                                                        <label for="inputNome" class="col-md-1 control-label">Senha:</label>
+                                                        <label for="inputSenha" class="col-md-1 control-label">Senha:</label>
                                                         <div class="col-sm-4">
-                                                            <input type="text" class="form-control" id="inputSenha" >
+                                                            <input type="password" class="form-control" name="inputSenha" id="inputSenha" >
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="inputNome" class="col-md-2 control-label">CEP:</label>
+                                                        <label for="cep" class="col-md-2 control-label">CEP:</label>
                                                         <div class="col-sm-3">
-                                                        <input type="text" class="form-control" id="cep" name="cep" maxlength="9" onblur="pesquisacep(this.value);" />
+                                                            <input type="text" class="form-control" id="cep" name="cep" maxlength="9" onblur="pesquisacep(this.value);" />
+                                                        </div>                                        
+                                                        <div class="col-sm-6">
+                                                            <small>O sistema preencherá automaticamente rua, bairro e cidade</small>
                                                         </div>                                        
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="inputNome" class="col-md-2 control-label">Rua:</label>
+                                                        <label for="inputRua" class="col-md-2 control-label">Rua:</label>
                                                         <div class="col-sm-5">
-                                                            <input type="text" class="form-control" id="inputRua" >
+                                                            <input type="text" class="form-control" name="inputRua" id="inputRua" >
                                                         </div>
-                                                        <label for="inputNome" class="col-md-1 control-label">Número:</label>
+                                                        <label for="inputNumero" class="col-md-1 control-label">Número:</label>
                                                         <div class="col-sm-2">
-                                                        <input type="text" class="form-control" id="inputNumero" >
+                                                            <input type="text" class="form-control" name="inputNumero" id="inputNumero" >
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="inputNome" class="col-md-2 control-label">Bairro:</label>
+                                                        <label for="inputBairro" class="col-md-2 control-label">Bairro:</label>
                                                         <div class="col-sm-5">
-                                                            <input type="text" class="form-control" id="inputBairro" >
+                                                            <input type="text" class="form-control" name="inputBairro" id="inputBairro" >
                                                         </div>
-                                                        <label for="inputNome" class="col-md-1 control-label">Cidade:</label>
+                                                        <label for="inputCidade" class="col-md-1 control-label">Cidade:</label>
                                                         <div class="col-sm-4">
-                                                            <input type="text" class="form-control" id="inputCidade" >
+                                                            <input type="text" class="form-control" name="inputCidade" id="inputCidade" >
                                                         </div>
                                                     </div>
-
 
                                                 </div>
                                             </div>

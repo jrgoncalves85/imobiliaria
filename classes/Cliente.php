@@ -33,4 +33,23 @@ class Cliente
         die(); 
         return $lista;       
     }
+
+    public function inserir()
+    {
+        $sql = "INSERT INTO clientes (nome, telefone, email, senha, cep, rua, numero, bairro, cidade) VALUES (
+            '" . $this->nome . "', 
+            '" . $this->telefone . "', 
+            '" . $this->email . "',
+            '" . $this->senha . "',
+            '" . $this->cep . "',
+            '" . $this->rua . "',
+            '" . $this->numero . "',
+            '" . $this->bairro . "',
+            '" . $this->cidade . "')";
+        
+        echo $sql;
+        die();
+        //$conexao = new PDO('mysql:host=127.0.0.1;dbname=imobiliaria', 'root', '');
+        //$conexao->exec($sql); 
+    }
 }
