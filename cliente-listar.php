@@ -1,3 +1,9 @@
+<?php
+  require_once 'classes/Cliente.php';
+  $cliente = new Cliente();
+  $lista = $cliente->listar();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,61 +55,31 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Nome</th>
-                                    <th>Celular</th>
-                                    <th>E-mail</th>
-                                    <th>Senha</th>
+                                    <th>Telefone</th>
+                                    <th>E-mail</th>                                    
                                     <th class="acao">Ações</th>
                                 </tr>
                                 </thead>
-
                                 <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Ana Carolina Silveira</td>
-                                    <td>(19) 99999-9999</td> 
-                                    <td>anasilveira@gmail.com</td>
-                                    <td>****</td>                 
-                                    <td><a href="cliente-form.php" class="btn btn-sm btn-primary">
-                                            <i class="fa fa-edit"></i><span> Editar</span>
-                                        </a>
-                                        <a href="#" class="btn btn-sm btn-danger">
-                                            <i class="fa fa-remove"></i><span> Excluir</span>
-                                        </a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>2</td>
-                                    <td>Bruno Camargo de Assis</td>
-                                    <td>(19) 88888-8888</td> 
-                                    <td>brunocamargo@gmail.com</td>
-                                    <td>****</td>
-                                    <td><a href="cliente-form.php" class="btn btn-sm btn-primary">
-                                            <i class="fa fa-edit"></i><span> Editar</span>
-                                        </a>
-                                        <a href="#" class="btn btn-sm btn-danger">
-                                            <i class="fa fa-remove"></i><span> Excluir</span>
-                                        </a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>3</td>
-                                    <td>Camilla Pereira Silva</td>
-                                    <td>(19) 77777-7777</td> 
-                                    <td>camysilva@gmail.com</td>
-                                    <td>****</td>
-                                    <td><a href="cliente-form.php" class="btn btn-sm btn-primary">
-                                            <i class="fa fa-edit"></i><span> Editar</span>
-                                        </a>
-                                        <a href="#" class="btn btn-sm btn-danger">
-                                            <i class="fa fa-remove"></i><span> Excluir</span>
-                                        </a>
-                                    </td>
-                                </tr>
-
+                                    <?php foreach ($lista as $linha): ?>
+                                        <tr>
+                                            <td><?php echo $linha['id'] ?></a></td>
+                                            <td><?php echo $linha['nome'] ?></a></td>
+                                            <td><?php echo $linha['telefone'] ?></a></td>
+                                            <td><?php echo $linha['email'] ?></a></td>
+                                            <td>
+                                            <a href="#" 
+                                                class="btn btn-sm btn-primary">Detalhes</a>              
+                                            <a href="#" 
+                                                class="btn btn-sm btn-warning">Editar</a>
+                                            <a href="#" 
+                                                class="btn btn-sm btn-danger">Excluir</a>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach ?>                          
                                 </tbody>
                             </table>
+
                         </div>
                     </div>
                 </div>
