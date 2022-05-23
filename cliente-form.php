@@ -1,70 +1,84 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>TIPO Imobiliária</title>
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
-    <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="dist/css/skins/skin-green-light.css">
-    <link rel="stylesheet" href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-    <link rel="stylesheet" href="dist/css/estilo.css">
-    <script>
-        function limpa_formulário_cep() {
-                //Limpa valores do formulário de cep.
-                document.getElementById('inputRua').value=("");
-                document.getElementById('inputBairro').value=("");
-                document.getElementById('inputCidade').value=("");
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>TIPO Imobiliária</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="dist/css/skins/skin-green-light.css">
+  <link rel="stylesheet" href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <link rel="stylesheet" href="dist/css/estilo.css">
+
+  <script>
+    
+    function limpa_formulário_cep() {
+            //Limpa valores do formulário de cep.
+            document.getElementById('inputRua').value=("");
+            document.getElementById('inputBairro').value=("");
+            document.getElementById('inputCidade').value=("");
+    }
+
+    function meu_callback(conteudo) {
+        if (!("erro" in conteudo)) {
+            //Atualiza os campos com os valores.
+            document.getElementById('inputRua').value=(conteudo.logradouro);
+            document.getElementById('inputBairro').value=(conteudo.bairro);
+            document.getElementById('inputCidade').value=(conteudo.localidade);     
+        } //end if.
+        else {
+            //CEP não Encontrado.
+            limpa_formulário_cep();
+            alert("CEP não encontrado.");
         }
-        function meu_callback(conteudo) {
-            if (!("erro" in conteudo)) {
-                //Atualiza os campos com os valores.
-                document.getElementById('inputRua').value=(conteudo.logradouro);
-                document.getElementById('inputBairro').value=(conteudo.bairro);
-                document.getElementById('inputCidade').value=(conteudo.localidade);     
+    }
+        
+    function pesquisacep(valor) {
+
+        //Nova variável "cep" somente com dígitos.
+        var cep = valor.replace(/\D/g, '');
+
+        //Verifica se campo cep possui valor informado.
+        if (cep != "") {
+
+            //Expressão regular para validar o CEP.
+            var validacep = /^[0-9]{8}$/;
+
+            //Valida o formato do CEP.
+            if(validacep.test(cep)) {
+
+                //Preenche os campos com "..." enquanto consulta webservice.
+                document.getElementById('inputRua').value="...";
+                document.getElementById('inputBairro').value="...";
+                document.getElementById('inputCidade').value="...";
+
+                //Cria um elemento javascript.
+                var script = document.createElement('script');
+
+                //Sincroniza com o callback.
+                script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+
+                //Insere script no documento e carrega o conteúdo.
+                document.body.appendChild(script);
+
             } //end if.
             else {
-                //CEP não Encontrado.
+                //cep é inválido.
                 limpa_formulário_cep();
-                alert("CEP não encontrado.");
+                alert("Formato de CEP inválido.");
             }
+        } //end if.
+        else {
+            //cep sem valor, limpa formulário.
+            limpa_formulário_cep();
         }
-        function pesquisacep(valor) {
-            //Nova variável "cep" somente com dígitos.
-            var cep = valor.replace(/\D/g, '');
-            //Verifica se campo cep possui valor informado.
-            if (cep != "") {
-                //Expressão regular para validar o CEP.
-                var validacep = /^[0-9]{8}$/;
-                //Valida o formato do CEP.
-                if(validacep.test(cep)) {
-                    //Preenche os campos com "..." enquanto consulta webservice.
-                    document.getElementById('inputRua').value="...";
-                    document.getElementById('inputBairro').value="...";
-                    document.getElementById('inputCidade').value="...";
-                    //Cria um elemento javascript.
-                    var script = document.createElement('script');
-                    //Sincroniza com o callback.
-                    script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
-                    //Insere script no documento e carrega o conteúdo.
-                    document.body.appendChild(script);
-                } 
-                else {
-                    //cep é inválido.
-                    limpa_formulário_cep();
-                    alert("Formato de CEP inválido.");
-                }
-            }
-            else {
-                //cep sem valor, limpa formulário.
-                limpa_formulário_cep();
-            }
-        };
+    };
     </script>
+
 </head>
 <body class="hold-transition skin-green-light sidebar-mini fixed">
 <div class="wrapper">
@@ -109,28 +123,25 @@
                                                         <div class="col-sm-5">
                                                             <input type="text" class="form-control" name="inputNome" id="inputNome" >
                                                         </div>
-                                                        <label for="inputTelefone" class="col-md-1 control-label">Celular:</label>
+                                                        <label for="inputTelefone" class="col-md-1 control-label">Telefone:</label>
                                                         <div class="col-sm-4">
-                                                            <input type="text" class="form-control" name="inputTelefone" id="inputTelefone" data-inputmask="'mask': ['(99) 99999-9999']" data-mask="" inputmode="text">
+                                                            <input type="text" class="form-control" name="inputTelefone" id="inputTelefone" >
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="inputEmail" class="col-md-2 control-label">E-mail:</label>
                                                         <div class="col-sm-5">
-                                                            <input type="email" class="form-control" name="inputEmail" id="inputEmail" >
+                                                            <input type="text" class="form-control" name="inputEmail" id="inputEmail" >
                                                         </div>
                                                         <label for="inputSenha" class="col-md-1 control-label">Senha:</label>
                                                         <div class="col-sm-4">
-                                                            <input type="password" class="form-control" name="inputSenha" id="inputSenha" >
+                                                            <input type="text" class="form-control" name="inputSenha" id="inputSenha" >
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="cep" class="col-md-2 control-label">CEP:</label>
                                                         <div class="col-sm-3">
-                                                            <input type="text" class="form-control" id="cep" name="cep" maxlength="9" onblur="pesquisacep(this.value);" />
-                                                        </div>                                        
-                                                        <div class="col-sm-6">
-                                                            <small>O sistema preencherá automaticamente rua, bairro e cidade</small>
+                                                            <input type="text" class="form-control" name="cep" id="cep" maxlength="9" onblur="pesquisacep(this.value);" />
                                                         </div>                                        
                                                     </div>
                                                     <div class="form-group">

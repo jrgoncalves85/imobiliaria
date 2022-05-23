@@ -60,5 +60,3 @@ CREATE TABLE tipos (
   tipo VARCHAR(30) NULL,
   PRIMARY KEY(id)
 );
-
-

@@ -1,3 +1,0 @@
-INSERT INTO clientes (nome, telefone, email, senha, cep, rua, numero, bairro, cidade) VALUES
-('Machado de Assis','(19) 3863-1111','machado@gmail.com','123456','13970010','Rua Coronel Francisco Cintra','100','Centro','Itapira'),
-('Clarice Lispector','(19) 3863-2222','clarice@gmail.com','123456','13970050','Rua Prudente de Moraes','154','Centro','Itapira');

@@ -14,5 +14,5 @@ $cliente->bairro = $_POST['inputBairro'];
 $cliente->cidade = $_POST['inputCidade'];
 
 $cliente->inserir();
-// header('Location: cliente-listar.php');
+header('Location: cliente-listar.php');
 ?>
