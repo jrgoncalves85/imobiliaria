@@ -27,10 +27,6 @@ class Cliente
         $conexao = new PDO('mysql:host=127.0.0.1;dbname=junior', 'root', '');
         $resultado = $conexao->query($sql);
         $lista = $resultado->fetchAll();
-        //echo "<pre>";
-        //print_r($lista);
-        //echo "</pre>";
-        //die(); 
         return $lista;       
     }
 
@@ -45,9 +41,7 @@ class Cliente
             '" . $this->rua . "',
             '" . $this->numero . "',
             '" . $this->bairro . "',
-            '" . $this->cidade . "')";        
-        //echo $sql;
-        //die();
+            '" . $this->cidade . "')";
         $conexao = new PDO('mysql:host=127.0.0.1;dbname=junior', 'root', '');
         $conexao->exec($sql); 
     }

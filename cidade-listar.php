@@ -70,7 +70,7 @@
                                                 class="btn btn-sm btn-primary">Detalhes</a>              
                                             <a href="#" 
                                                 class="btn btn-sm btn-warning">Editar</a>
-                                            <a href="#" 
+                                            <a href="cidade-excluir.php?id=<?php echo $linha['id'] ?>"
                                                 class="btn btn-sm btn-danger">Excluir</a>
                                             </td>
                                         </tr>

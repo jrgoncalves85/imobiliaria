@@ -29,4 +29,11 @@ class Cidade
         $conexao = new PDO('mysql:host=127.0.0.1;dbname=junior', 'root', '');
         $conexao->exec($sql); 
     }
+
+    public function excluir()
+    {
+        $sql = "DELETE FROM cidades WHERE id=". $this->id;
+        $conexao = new PDO('mysql:host=127.0.0.1;dbname=junior', 'root', '');
+        $conexao->exec($sql); 
+    }
 }
