@@ -63,17 +63,10 @@
                                 <tbody>
                                 <?php foreach ($lista as $linha): ?>
                                     <tr>
-                                        <td><?php echo $linha['id'] ?></a></td>
-                                        <td><?php echo $linha['titulo'] ?></a></td>                                                              
-
-                                        <td>
-                                            <?php 
-                                                echo "<img src='uploads/".$linha['imagem']."' width='200'>" 
-                                            ?>                                                              
-                                        <td>
-                                        <a href="#" 
-                                            class="btn btn-sm btn-danger" disabled="true">Excluir</a>
-                                        </td>
+                                        <td><?php echo $linha['id'] ?></td>
+                                        <td><?php echo $linha['titulo'] ?></td>                                                              
+                                        <td><?php echo "<img src='uploads/".$linha['imagem']."' width='200'>" ?></td>
+                                        <td><a href="#" class="btn btn-sm btn-danger" disabled="true">Excluir</a></td>
                                     </tr>
                                 <?php endforeach ?> 
                                 </tbody>
