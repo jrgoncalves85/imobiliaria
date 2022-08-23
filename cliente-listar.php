@@ -68,7 +68,7 @@
                                             <td><?php echo $linha['telefone'] ?></a></td>
                                             <td><?php echo $linha['email'] ?></a></td>
                                             <td>
-                                            <a href="#" 
+                                            <a href="cliente-editar.php?id=<?php echo $linha['id'] ?>" 
                                                 class="btn btn-sm btn-primary">Detalhes</a>              
                                             <a href="cliente-editar.php?id=<?php echo $linha['id'] ?>" 
                                                 class="btn btn-sm btn-warning">Editar</a>

@@ -129,19 +129,19 @@
                                                         <div class="col-sm-5">
                                                             <input type="text" class="form-control" name="inputNome" id="inputNome" value="<?php echo $cliente->nome ?>" >
                                                         </div>
-                                                        <label for="inputTelefone" class="col-md-1 control-label">Telefone:</label>
+                                                        <label for="inputTelefone" class="col-md-1 control-label">Celular:</label>
                                                         <div class="col-sm-4">
-                                                            <input type="text" class="form-control" name="inputTelefone" id="inputTelefone" value="<?php echo $cliente->telefone ?>">
+                                                            <input type="text" class="form-control" name="inputTelefone" id="inputTelefone" value="<?php echo $cliente->telefone ?>" data-inputmask="'mask': ['(99) 99999-9999']" data-mask="" inputmode="text" >
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="inputEmail" class="col-md-2 control-label">E-mail:</label>
                                                         <div class="col-sm-5">
-                                                            <input type="text" class="form-control" name="inputEmail" id="inputEmail" value="<?php echo $cliente->email ?>">
+                                                            <input type="email" class="form-control" name="inputEmail" id="inputEmail" value="<?php echo $cliente->email ?>">
                                                         </div>
                                                         <label for="inputSenha" class="col-md-1 control-label">Senha:</label>
                                                         <div class="col-sm-4">
-                                                            <input type="text" class="form-control" name="inputSenha" id="inputSenha" value="<?php echo $cliente->senha ?>">
+                                                            <input type="password" class="form-control" name="inputSenha" id="inputSenha" value="<?php echo $cliente->senha ?>">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
@@ -226,5 +226,29 @@
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="dist/js/adminlte.min.js"></script>
+
+<!-- InputMask -->
+<script src="plugins/input-mask/jquery.inputmask.js"></script>
+<script src="plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+<script src="plugins/input-mask/jquery.inputmask.extensions.js"></script>
+<script src="bower_components/select2/dist/js/select2.full.min.js"></script>
+
+<!-- Page script -->
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+    //Datemask dd/mm/yyyy
+    $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+    //Datemask2 mm/dd/yyyy
+    $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+    //Money Euro
+    $('[data-mask]').inputmask()    
+    //Date picker
+    $('#datepicker').datepicker({ autoclose: true })
+    //Timepicker
+    $('.timepicker').timepicker({ showInputs: false })
+  })
+</script>
 </body>
 </html> 
