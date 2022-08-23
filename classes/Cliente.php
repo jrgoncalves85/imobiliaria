@@ -16,6 +16,7 @@ class Cliente
     {
         if ($id) {
             $this->id = $id;
+            $this->carregar();
         }
     }
     
@@ -52,4 +53,39 @@ class Cliente
         $conexao = new PDO('mysql:host=127.0.0.1;dbname=junior', 'root', '');
         $conexao->exec($sql); 
     }
+
+    public function carregar()
+    {
+        $sql = "SELECT * FROM clientes WHERE id=". $this->id;
+        $conexao = new PDO('mysql:host=127.0.0.1;dbname=junior', 'root', '');
+        $resultado = $conexao->query($sql);
+        $linha = $resultado->fetch();
+        $this->nome = $linha['nome'];
+        $this->telefone = $linha['telefone'];
+        $this->email = $linha['email'];
+        $this->senha = $linha['senha'];
+        $this->cep = $linha['cep'];
+        $this->rua = $linha['rua'];
+        $this->numero = $linha['numero'];
+        $this->bairro = $linha['bairro'];
+        $this->cidade = $linha['cidade'];
+    }
+
+    public function atualizar()
+    {
+        $sql = "UPDATE clientes SET 
+                    nome = '$this->nome' ,
+                    telefone = '$this->telefone' ,
+                    email = '$this->email' ,
+                    senha = '$this->senha' ,
+                    cep = '$this->cep' ,
+                    rua = '$this->rua' ,
+                    numero = '$this->numero' ,
+                    bairro = '$this->bairro' ,
+                    cidade = '$this->cidade'                    
+                WHERE id = $this->id ";
+        $conexao = new PDO('mysql:host=127.0.0.1;dbname=junior', 'root', '');
+        $conexao->exec($sql);
+    }
+
 }

@@ -70,7 +70,7 @@
                                             <td>
                                             <a href="#" 
                                                 class="btn btn-sm btn-primary">Detalhes</a>              
-                                            <a href="#" 
+                                            <a href="cliente-editar.php?id=<?php echo $linha['id'] ?>" 
                                                 class="btn btn-sm btn-warning">Editar</a>
                                             <a href="cliente-excluir.php?id=<?php echo $linha['id'] ?>"
                                                 class="btn btn-sm btn-danger">Excluir</a> 
