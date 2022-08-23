@@ -1,3 +1,9 @@
+<?php
+  require_once 'classes/Bairro.php';
+  $bairro = new Bairro();
+  $lista = $bairro->listar();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,57 +60,22 @@
                                 </tr>
                                 </thead>
 
-                                <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Centro</td>
-                                    <td>Itapira</td>                 
-                                    <td><a href="bairro-form.php" class="btn btn-sm btn-primary">
-                                            <i class="fa fa-edit"></i><span> Editar</span>
-                                        </a>
-                                        <a href="#" class="btn btn-sm btn-danger">
-                                            <i class="fa fa-remove"></i><span> Excluir</span>
-                                        </a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>2</td>
-                                    <td>Santa Cruz</td>
-                                    <td>Itapira</td>
-                                    <td><a href="bairro-form.php" class="btn btn-sm btn-primary">
-                                            <i class="fa fa-edit"></i><span> Editar</span>
-                                        </a>
-                                        <a href="#" class="btn btn-sm btn-danger">
-                                            <i class="fa fa-remove"></i><span> Excluir</span>
-                                        </a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>3</td>
-                                    <td>Eleutério</td>
-                                    <td>Itapira</td>
-                                    <td><a href="bairro-form.php" class="btn btn-sm btn-primary">
-                                            <i class="fa fa-edit"></i><span> Editar</span>
-                                        </a>
-                                        <a href="#" class="btn btn-sm btn-danger">
-                                            <i class="fa fa-remove"></i><span> Excluir</span>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Centro</td>
-                                    <td>Jacutinga</td>
-                                    <td><a href="bairro-form.php" class="btn btn-sm btn-primary">
-                                            <i class="fa fa-edit"></i><span> Editar</span>
-                                        </a>
-                                        <a href="#" class="btn btn-sm btn-danger">
-                                            <i class="fa fa-remove"></i><span> Excluir</span>
-                                        </a>
-                                    </td>
-                                </tr>
+                                <tbody>                                
+                                    <?php foreach ($lista as $linha): ?>
+                                        <tr>
+                                            <td><?php echo $linha['id'] ?></a></td>
+                                            <td><?php echo $linha['bairro'] ?></a></td>
+                                            <td><?php echo $linha['cidade_id'] ?></a></td>
+                                            <td>
+                                            <a href="#" 
+                                                class="btn btn-sm btn-primary">Detalhes</a>              
+                                            <a href="#" 
+                                                class="btn btn-sm btn-warning">Editar</a>
+                                            <a href="cidade-excluir.php?id=<?php echo $linha['id'] ?>"
+                                                class="btn btn-sm btn-danger">Excluir</a>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach ?>
                                 </tbody>
                             </table>
                         </div>
