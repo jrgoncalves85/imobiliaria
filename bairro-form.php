@@ -1,3 +1,8 @@
+<?php
+  require_once 'classes/Cidade.php';
+  $cidade = new Cidade();
+  $lista = $cidade->listar();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,8 +65,12 @@
                                                         <label for="inputcpf" class="col-sm-1 control-label">Cidade:</label>
                                                         <div class="col-sm-4">
                                                             <select id="selectcon" class="form-control">
-                                                                <option value='1'>Itapira</option>
-                                                                <option value='2'>Jacutinga</option>      
+                                                                <option value=''>Selecione...</option>
+                                                                <?php
+                                                                    foreach ($lista as $linha):
+                                                                        echo "<option value='".$linha['id']."'>".$linha['cidade']."</option>";
+                                                                    endforeach
+                                                                ?>
                                                             </select>
                                                         </div>
                                                     </div>
