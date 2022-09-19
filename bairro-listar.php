@@ -63,7 +63,7 @@
                                 <tbody>                                
                                     <?php foreach ($lista as $linha): ?>
                                         <tr>
-                                            <td><?php echo $linha['id'] ?></a></td>
+                                            <td><?php echo $linha['codigo'] ?></a></td>
                                             <td><?php echo $linha['bairro'] ?></a></td>
                                             <td><?php echo $linha['cidade'] ?></a></td>
                                             <td>

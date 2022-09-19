@@ -14,7 +14,7 @@ class Bairro
     
     public function listar()
     {
-        $sql = "SELECT b.id, b.bairro, b.cidade_id, c.id, c.cidade
+        $sql = "SELECT b.id AS codigo, b.bairro, b.cidade_id, c.id, c.cidade
                 FROM bairros b JOIN cidades c
                 ON b.cidade_id = c.id
                 ORDER BY b.id"; 
