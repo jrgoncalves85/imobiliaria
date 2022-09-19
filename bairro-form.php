@@ -52,7 +52,7 @@
                             <div class="tab-content">
                                 <div class="tab-pane active" id="pessoais">
                                     <div class="post"><br>
-                                        <form id="form1" name="form1" class="form-horizontal" action="#" method="post" onsubmit="return checkCheckBox(this)" enctype="multipart/form-data">
+                                        <form id="form1" name="form1" class="form-horizontal" action="bairro-gravar.php" method="post" onsubmit="return checkCheckBox(this)" enctype="multipart/form-data">
                                             <div class="row">
                                                 <div class="col-xs-12">
                                                     <input type="hidden" name="inputId" value="">
@@ -60,11 +60,11 @@
                                                     <div class="form-group">
                                                         <label for="inputNome" class="col-md-2 control-label">Bairro:</label>
                                                         <div class="col-sm-4">
-                                                            <input type="text" class="form-control" id="inputNome" >
+                                                            <input type="text" class="form-control" id="inputBairro" name="inputBairro" >
                                                         </div>
                                                         <label for="inputcpf" class="col-sm-1 control-label">Cidade:</label>
                                                         <div class="col-sm-4">
-                                                            <select id="selectcon" class="form-control">
+                                                            <select id="selectCidade" name="selectCidade" class="form-control">
                                                                 <option value=''>Selecione...</option>
                                                                 <?php
                                                                     foreach ($lista as $linha):

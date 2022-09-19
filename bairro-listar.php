@@ -65,13 +65,13 @@
                                         <tr>
                                             <td><?php echo $linha['id'] ?></a></td>
                                             <td><?php echo $linha['bairro'] ?></a></td>
-                                            <td><?php echo $linha['cidade_id'] ?></a></td>
+                                            <td><?php echo $linha['cidade'] ?></a></td>
                                             <td>
                                             <a href="#" 
                                                 class="btn btn-sm btn-primary">Detalhes</a>              
                                             <a href="#" 
                                                 class="btn btn-sm btn-warning">Editar</a>
-                                            <a href="cidade-excluir.php?id=<?php echo $linha['id'] ?>"
+                                            <a href="#"
                                                 class="btn btn-sm btn-danger">Excluir</a>
                                             </td>
                                         </tr>

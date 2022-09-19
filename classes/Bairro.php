@@ -14,9 +14,10 @@ class Bairro
     
     public function listar()
     {
-        $sql = "SELECT id, bairro, cidade_id
-                FROM bairros
-                ORDER BY id";  
+        $sql = "SELECT b.id, b.bairro, b.cidade_id, c.id, c.cidade
+                FROM bairros b JOIN cidades c
+                ON b.cidade_id = c.id
+                ORDER BY b.id"; 
         $conexao = new PDO('mysql:host=127.0.0.1;dbname=junior', 'root', '');
         $resultado = $conexao->query($sql);
         $lista = $resultado->fetchAll();
@@ -25,16 +26,11 @@ class Bairro
 
     public function inserir()
     {
-        $sql = "INSERT INTO bairro (bairro) VALUES (
-            '" . $this->bairro . "')";
+        $sql = "INSERT INTO bairros (bairro, cidade_id) VALUES (
+            '" . $this->bairro . "',
+            '" . $this->cidade_id ."')";
         $conexao = new PDO('mysql:host=127.0.0.1;dbname=junior', 'root', '');
         $conexao->exec($sql); 
     }
 
-    public function excluir()
-    {
-        $sql = "DELETE FROM bairro WHERE id=". $this->id;
-        $conexao = new PDO('mysql:host=127.0.0.1;dbname=junior', 'root', '');
-        $conexao->exec($sql); 
-    }
 }
