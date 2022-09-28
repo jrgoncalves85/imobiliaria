@@ -14,9 +14,9 @@ class Bairro
     
     public function listar()
     {
-        $sql = "SELECT b.id AS codigo, b.bairro, b.cidade_id, c.id, c.cidade
+        $sql = "SELECT b.id AS codigo, b.bairro, b.cidades_id, c.id, c.cidade
                 FROM bairros b JOIN cidades c
-                ON b.cidade_id = c.id
+                ON b.cidades_id = c.id
                 ORDER BY b.id"; 
         $conexao = new PDO('mysql:host=127.0.0.1;dbname=junior', 'root', '');
         $resultado = $conexao->query($sql);
@@ -26,7 +26,7 @@ class Bairro
 
     public function inserir()
     {
-        $sql = "INSERT INTO bairros (bairro, cidade_id) VALUES (
+        $sql = "INSERT INTO bairros (bairro, cidades_id) VALUES (
             '" . $this->bairro . "',
             '" . $this->cidade_id ."')";
         $conexao = new PDO('mysql:host=127.0.0.1;dbname=junior', 'root', '');
