@@ -1,3 +1,7 @@
+<?php
+require_once 'usuario-verifica.php'; 
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
